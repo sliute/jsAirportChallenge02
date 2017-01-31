@@ -17,5 +17,9 @@ describe('Airport', function(){
     it("have a planes array - tBD", function(){
       expect(airport.planes).toBeDefined()
     });
+
+    it("know if there's a storm going on", function() {
+      expect(airport.isStormy()).toBe(false);
+    });
   });
 });

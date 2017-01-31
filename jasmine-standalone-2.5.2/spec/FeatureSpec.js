@@ -24,4 +24,13 @@ describe('Plane lands at airport', function(){
       expect(airport.planes).not.toContain(plane);
     });
   });
+
+  it("unless there's a storm", function() {
+    plane.land(airport);
+    spyOn(airport, 'isStormy').and.returnValue(true);
+    expect(function() {plane.takeoff(airport)};).toThrowError('Stormy! No takeoff!');
+    // expect(function() {airport.clearForTakeoff(plane)};).toThrowError('Stormy! No takeoff!');
+    expect(airport.planes).toContain(plane);
+  });
+
 });
