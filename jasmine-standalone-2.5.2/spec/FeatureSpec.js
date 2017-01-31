@@ -5,6 +5,7 @@ describe('Plane lands at airport', function(){
   var airport;
   var plane;
   var plane2;
+  var plane3;
 
   beforeEach(function() {
     airport = new Airport();
@@ -21,7 +22,7 @@ describe('Plane lands at airport', function(){
   it("unless airport is at capacity", function(){
     plane.land(airport);
     plane2.land(airport);
-    expect(function() {plane3.land(airport)};).toThrowError('Airport at capacity!');
+    expect(function() {plane3.land(airport) }).toThrowError('Airport at capacity!');
   });
 
   describe('then takes off', function(){
@@ -30,14 +31,15 @@ describe('Plane lands at airport', function(){
       plane.takeoff(airport);
       expect(airport.planes).not.toContain(plane);
     });
-  });
 
-  it("unless there's a storm", function(){
-    plane.land(airport);
-    spyOn(airport, 'isStormy').and.returnValue(true);
-    expect(function() {plane.takeoff(airport)};).toThrowError('Stormy! No takeoff!');
-    // expect(function() {airport.clearForTakeoff(plane)};).toThrowError('Stormy! No takeoff!');
-    expect(airport.planes).toContain(plane);
+
+    it("unless there's a storm", function(){
+      plane.land(airport);
+      spyOn(airport, "isStormy").and.returnValue(true);
+      expect(function() {plane.takeoff(airport)}).toThrowError('Stormy! No takeoff!');
+      expect(function() {airport.clearForTakeoff(plane)}).toThrowError('Stormy! No takeoff!');
+      expect(airport.planes).toContain(plane);
+    });
   });
 
 });

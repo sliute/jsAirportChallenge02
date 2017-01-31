@@ -10,11 +10,15 @@ Airport.prototype.isStormy = function() {
 };
 
 Airport.prototype.clearForLanding = function(plane) {
-  this.planes.push(plane);
+  if (this.planes.length === this.capacity) {
+    throw new Error('Airport at capacity!');
+  } else {
+    this.planes.push(plane);
+  };
 };
 
 Airport.prototype.clearForTakeoff = function(plane) {
-  if (this.isStormy === true) {
+  if (this.isStormy()) {
     throw new Error('Stormy! No takeoff!');
   } else {
     var index = this.planes.indexOf(plane);
