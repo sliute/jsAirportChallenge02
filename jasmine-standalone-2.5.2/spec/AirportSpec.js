@@ -22,8 +22,13 @@ describe('Airport', function(){
       expect(airport.isStormy()).toBe(false);
     });
 
-    it("have a maximum capacity", function(){
+    it("have a default maximum capacity", function(){
       expect(airport.capacity).toBe(2);
+    })
+
+    it("that you can override as appropriate", function(){
+      airport.capacity = 4
+      expect(airport.capacity).toBe(4);
     })
   });
 });
