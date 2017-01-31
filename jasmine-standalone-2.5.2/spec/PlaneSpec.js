@@ -18,4 +18,10 @@ describe('Plane', function(){
       expect(plane.land).toBeDefined()
     });
   });
+
+  describe('is expected to', function(){
+    it("takeoff", function(){
+      expect(plane.takeoff).toBeDefined()
+    });
+  });
 });

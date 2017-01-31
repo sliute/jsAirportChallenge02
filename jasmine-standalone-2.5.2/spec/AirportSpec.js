@@ -11,7 +11,7 @@ describe('Airport', function(){
 
   describe('is expected to', function(){
     it("have a planes array", function(){
-      expect(typeof airport.planes).toBe("object")
+      expect(airport.planes).toEqual([])
     });
 
     it("have a planes array - tBD", function(){
