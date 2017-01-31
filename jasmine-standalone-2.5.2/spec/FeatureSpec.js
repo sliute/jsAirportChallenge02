@@ -32,6 +32,7 @@ describe('Feature tests:', function(){
 
   it("Then the plane takes off and is removed from the planes array", function(){
     plane.land(airport);
+    spyOn(airport, "isStormy").and.returnValue(false);
     plane.takeoff(airport);
     expect(airport.planes).not.toContain(plane);
   });

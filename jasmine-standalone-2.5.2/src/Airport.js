@@ -6,7 +6,11 @@ function Airport() {
 };
 
 Airport.prototype.isStormy = function() {
-  return false
+  if (Math.random() < 0.5) {
+    return false
+  } else {
+    return true
+  }
 };
 
 Airport.prototype.clearForLanding = function(plane) {

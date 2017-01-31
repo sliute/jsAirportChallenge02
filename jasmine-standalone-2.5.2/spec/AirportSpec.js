@@ -19,6 +19,12 @@ describe('Airport', function(){
     });
 
     it("know if there's a storm going on", function() {
+      spyOn(airport, "isStormy").and.returnValue(true);
+      expect(airport.isStormy()).toBe(true);
+    });
+
+    it("know if there's no storm when clear", function() {
+      spyOn(airport, "isStormy").and.returnValue(false);
       expect(airport.isStormy()).toBe(false);
     });
 
