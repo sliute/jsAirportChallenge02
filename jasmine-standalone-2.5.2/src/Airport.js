@@ -2,6 +2,7 @@
 
 function Airport() {
   this.planes = [];
+  this.capacity = 2;
 };
 
 Airport.prototype.isStormy = function() {

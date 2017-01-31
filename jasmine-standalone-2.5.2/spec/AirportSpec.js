@@ -21,5 +21,9 @@ describe('Airport', function(){
     it("know if there's a storm going on", function() {
       expect(airport.isStormy()).toBe(false);
     });
+
+    it("have a maximum capacity", function(){
+      expect(airport.capacity).toBe(2);
+    })
   });
 });
